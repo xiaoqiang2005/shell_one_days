@@ -57,3 +57,38 @@ s/pattern/replacement/flags
 
   
 
+### 2.锚点字符
+
+- 行首匹配^
+
+  ```sh
+  $ echo "The book store" | sed -n '/^book/p'
+  $
+  $ echo "Books are great" | sed -n '/^Book/p'
+  Books are great
+  $
+  ```
+
+- 行尾匹配$
+
+  ```sh
+  $ echo "This is a good book" | sed -n '/book$/p'
+  This is a good book
+  $ echo "This book is good" | sed -n '/book$/p'
+  $
+  ```
+
+- 组合
+
+  ```sh
+  $ cat data4
+  this is a test of using both anchors
+  I said this is a test
+  this is a test
+  I'm sure this is a test.
+  $ sed -n '/^this is a test$/p' data4
+  this is a test
+  $
+  ```
+
+  
